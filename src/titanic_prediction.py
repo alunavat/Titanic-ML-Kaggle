@@ -57,7 +57,7 @@ test.drop(["Age","Age-binned"], axis = 1, inplace=True)
 #Create Model and split data for testing
 Z = train.drop(['Survived'],axis=1)
 Z_test = test
-X_train, X_test, y_train, y_test = train_test_split(Z, train[['Survived']], test_size=0.3,random_state=0)
+# X_train, X_test, y_train, y_test = train_test_split(Z, train[['Survived']], test_size=0.3,random_state=0)
 clf = MLPClassifier(solver='lbfgs', alpha=1e-5,hidden_layer_sizes=(5, 2), random_state=1)
 scores = cross_val_score(clf, Z, train[['Survived']].values.ravel(), cv=20)
 print ("Cross-validated scores:", np.mean(scores))
